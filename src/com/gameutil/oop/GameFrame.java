@@ -15,7 +15,7 @@ import java.awt.event.WindowEvent;
  */
 
 public class GameFrame extends Frame {
-	Image img = LoadImage.loadImage("image/DSC_0005.JPG");// 设置image路径
+	Image img = LoadImage.loadImage("image/github.jpg");// 设置image路径
 
 	/**
 	 * 加载窗口
@@ -30,25 +30,53 @@ public class GameFrame extends Frame {
 				System.exit(0); // 程序退出
 			}
 		});
+		new paintThread().start();// 开启重画窗口线程类
 	}
 
 	/**
 	 * 画窗口
 	 */
+	int i = 1;
+	private double x = 0, y = 0;
+
 	@Override
 	public void paint(Graphics g) {
+		System.out.println("第" + (i++) + "次重画窗口");
 		// TODO Auto-generated method stub
-//		Color c = g.getColor(); // 初始化笔的颜色
-//		g.setColor(Color.blue);
-//		g.drawLine(100, 100, 400, 400);
-//		g.drawLine(100, 400, 400, 100);
-//		g.setColor(Color.RED);
-//		g.drawRect(100, 100, 300, 300);
+		// Color c = g.getColor(); // 初始化笔的颜色
+		// g.setColor(Color.blue);
+		// g.drawLine(100, 100, 400, 400);
+		// g.drawLine(100, 400, 400, 100);
+		// g.setColor(Color.RED);
+		// g.drawRect(100, 100, 300, 300);
 		Font f = new Font("宋体", Font.BOLD, 100); // 设置字体
 		g.setFont(f); // 添加字体
 		g.drawString("大帅哥", 250, 150);
 		// 添加图片
-		g.drawImage(img, 200, 200, null);
+		g.drawImage(img, (int) x, (int) y, null);
+		x += 3;
+		y += 3;
+	}
+
+	/**
+	 * 定义一个重画窗口的线程内部类,实现动画闪烁.
+	 */
+	class paintThread extends Thread {
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			while (true) {
+				repaint();
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
 	}
 
 	/**
