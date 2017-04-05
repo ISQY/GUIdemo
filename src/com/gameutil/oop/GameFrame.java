@@ -9,57 +9,57 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * ¼ÓÔØÓÎÏ·½çÃæ
+ * åŠ è½½æ¸¸æˆç•Œé¢
  * 
  * @author Leon
  */
 
 public class GameFrame extends Frame {
-	Image img = LoadImage.loadImage("image/github.jpg");// ÉèÖÃimageÂ·¾¶
+	Image img = LoadImage.loadImage("image/github.jpg");// è®¾ç½®imageè·¯å¾„
 
 	/**
-	 * ¼ÓÔØ´°¿Ú
+	 * åŠ è½½çª—å£
 	 */
 	public void launchFrame() {
-		setTitle("ÓÎÏ·´°¿Ú"); // ÉèÖÃ´°¿Ú±êÌâ
-		setSize(1000, 900); // ÉèÖÃ´°¿Ú´óĞ¡³ß´ç
-		setLocation(500, 20); // ÉèÖÃ´°¿ÚÎ»ÖÃ
-		setVisible(true); // ÉèÖÃ´°¿ÚÊÇ·ñ¿É¼û
-		addWindowListener(new WindowAdapter() { // Ìí¼Ó´°¿Ú¼àÌıÊÂ¼ş
+		setTitle("æ¸¸æˆçª—å£"); // è®¾ç½®çª—å£æ ‡é¢˜
+		setSize(1000, 900); // è®¾ç½®çª—å£å¤§å°å°ºå¯¸
+		setLocation(500, 20); // è®¾ç½®çª—å£ä½ç½®
+		setVisible(true); // è®¾ç½®çª—å£æ˜¯å¦å¯è§
+		addWindowListener(new WindowAdapter() { // æ·»åŠ çª—å£ç›‘å¬äº‹ä»¶
 			public void windowClosing(WindowEvent e) {
-				System.exit(0); // ³ÌĞòÍË³ö
+				System.exit(0); // ç¨‹åºé€€å‡º
 			}
 		});
-		new paintThread().start();// ¿ªÆôÖØ»­´°¿ÚÏß³ÌÀà
+		new paintThread().start();// å¼€å¯é‡ç”»çª—å£çº¿ç¨‹ç±»
 	}
 
 	/**
-	 * »­´°¿Ú
+	 * ç”»çª—å£
 	 */
 	int i = 1;
 	private double x = 0, y = 0;
 
 	@Override
 	public void paint(Graphics g) {
-		System.out.println("µÚ" + (i++) + "´ÎÖØ»­´°¿Ú");
+		System.out.println("ç¬¬" + (i++) + "æ¬¡é‡ç”»çª—å£");
 		// TODO Auto-generated method stub
-		// Color c = g.getColor(); // ³õÊ¼»¯±ÊµÄÑÕÉ«
+		// Color c = g.getColor(); // åˆå§‹åŒ–ç¬”çš„é¢œè‰²
 		// g.setColor(Color.blue);
 		// g.drawLine(100, 100, 400, 400);
 		// g.drawLine(100, 400, 400, 100);
 		// g.setColor(Color.RED);
 		// g.drawRect(100, 100, 300, 300);
-		Font f = new Font("ËÎÌå", Font.BOLD, 100); // ÉèÖÃ×ÖÌå
-		g.setFont(f); // Ìí¼Ó×ÖÌå
-		g.drawString("´óË§¸ç", 250, 150);
-		// Ìí¼ÓÍ¼Æ¬
+		Font f = new Font("å®‹ä½“", Font.BOLD, 100); // è®¾ç½®å­—ä½“
+		g.setFont(f); // æ·»åŠ å­—ä½“
+		g.drawString("å¤§å¸…å“¥", 250, 150);
+		// æ·»åŠ å›¾ç‰‡
 		g.drawImage(img, (int) x, (int) y, null);
 		x += 3;
 		y += 3;
 	}
 
 	/**
-	 * ¶¨ÒåÒ»¸öÖØ»­´°¿ÚµÄÏß³ÌÄÚ²¿Àà,ÊµÏÖ¶¯»­ÉÁË¸.
+	 * å®šä¹‰ä¸€ä¸ªé‡ç”»çª—å£çš„çº¿ç¨‹å†…éƒ¨ç±»,å®ç°åŠ¨ç”»é—ªçƒ.
 	 */
 	class paintThread extends Thread {
 
@@ -80,7 +80,7 @@ public class GameFrame extends Frame {
 	}
 
 	/**
-	 * ³ÌĞòÈë¿Ú(Ö÷·½·¨)
+	 * ç¨‹åºå…¥å£(ä¸»æ–¹æ³•)
 	 * 
 	 * @param agrs
 	 */
